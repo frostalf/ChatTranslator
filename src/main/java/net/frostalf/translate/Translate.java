@@ -19,7 +19,6 @@ public class Translate extends JavaPlugin {
     public void onEnable() {
         this.checkUpdate();
     }
-    
     @Override
     public void onDisable() {
         
