@@ -50,11 +50,9 @@ public class ConfigManager {
             plugin.getServer().getLogger().log(Level.SEVERE, "{0}Could not load config file!", ChatColor.RED);
         }
         
-        config.addDefault("Google-API-Key", "Put google api key here.");
-        config.addDefault("Server-Language", "EN");
-        
         if (config.get("Google-API-Key", null) == null) {
-            config.options().copyDefaults(true);
+            config.set("Google-API-Key", "Put-Google-API-Key-HERE");
+            config.set("Server-Language", "EN");
             try {
                 config.save(cfile);
             } catch (IOException e) {

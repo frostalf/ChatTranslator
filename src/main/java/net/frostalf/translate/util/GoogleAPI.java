@@ -15,6 +15,8 @@ import org.bukkit.plugin.Plugin;
 /**
  *
  * @author Frostalf
+ * 
+ * This code setup is based on Gravity's Updater code that uses JSON.
  */
 public class GoogleAPI {
     
@@ -23,13 +25,15 @@ public class GoogleAPI {
     //Google API key
     private String apiKey = null;
     private String message = null;
+    private String translatedMessage = null;
     private Player player;
     private List<Player> players = new ArrayList<Player>();
     private List<String> playerNames = new ArrayList<String>();
     private Thread thread;
     private static final String HOST = "https://www.googleapis.com";
     private static final String QUERY = "/language/translate/v2?key=";
-    private String languageCode = null;
+    private String languageSourceCode = null;
+    private String languageTranslateTo = null;
     private static final String SOURCE_MESSAGE = "&source=en&target=de&callback=translateText&q=";
     private YamlConfiguration config;
     
