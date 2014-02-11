@@ -7,6 +7,7 @@ import org.json.simple.JSONValue;
 import java.net.URL;
 import java.net.URLConnection;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -36,9 +37,10 @@ public class GoogleAPI {
     private String languageTranslateTo = null;
     private static final String SOURCE_MESSAGE = "&source=en&target=de&callback=translateText&q=";
     private YamlConfiguration config;
+    private PlayerCache playerCache;
     
     
-    public GoogleAPI (Plugin plugin, String message, Player player, List<Player> players) {
+    public GoogleAPI (Plugin plugin, String message, Player player) {
         this.plugin = plugin;
         this.message = message;
         this.player = player;

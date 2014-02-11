@@ -11,10 +11,12 @@ public class PlayerCache {
     
     private String languageCode;
     private String playerName;
+    private boolean enabled;
     
-    public PlayerCache (Player player, String languageCode) {
+    public PlayerCache (Player player, String languageCode, boolean enabled) {
         this.playerName = player.getName();
         this.languageCode = languageCode;
+        this.enabled = enabled;
     }
     
     public String getLanguageCode() {
@@ -23,6 +25,10 @@ public class PlayerCache {
     
     public String getPlayerCacheName() {
         return this.playerName;
+    }
+    
+    public boolean isEnabled() {
+        return this.enabled;
     }
 
 }

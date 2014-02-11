@@ -1,5 +1,5 @@
 name: ChatTranslator
 main: net.frostalf.translate.Translate
-version: ${project.version}
+version: maven-version-number
 author: Frostalf
 description: Allows players to communicate regardless of which language they use.
