@@ -4,8 +4,9 @@ package net.frostalf.translate;
 import java.io.File;
 import java.util.HashMap;
 import java.util.logging.Level;
+import net.frostalf.translate.database.ConnectionPool;
 import net.frostalf.translate.updater.Updater;
-import net.frostalf.translate.util.DBStorage;
+import net.frostalf.translate.database.DBStorage;
 import net.frostalf.translate.util.PlayerCache;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,17 +19,19 @@ public class Translate extends JavaPlugin {
 
     static boolean UPDATE;
     static String NEWVERSION;
-    private HashMap<String, PlayerCache> playerCacheMap = new HashMap<String, PlayerCache>();
+    private HashMap<String, PlayerCache> playerCacheMap = new HashMap<>();
     private DBStorage dbStorage = new DBStorage();
+    private ConnectionPool connectionPool = new ConnectionPool(this);
     
     @Override
     public void onEnable() {
         this.checkUpdate();
-        dbStorage.DBStorage(this);
+        dbStorage.createTable();
+        connectionPool.createConnectionPool();
     }
     @Override
     public void onDisable() {
-        
+        connectionPool.closeConnections();
     }
     
     private void checkUpdate() {
