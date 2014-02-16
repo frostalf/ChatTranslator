@@ -120,8 +120,13 @@ public class Conversation {
         
         @Override
         public Prompt getNextPrompt(ConversationContext context) {
+            addPlayerInfo(player, playerName, languageCode, enabled);
             return END_OF_CONVERSATION;
         }
+    }
+    
+    public void addPlayerInfo(Player player, String playerName, String languageCode, boolean enabled) {
+        plugin.addPlayertoCache(player, languageCode, enabled);
     }
 
 }

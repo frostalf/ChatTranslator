@@ -60,10 +60,8 @@ public class Translate extends JavaPlugin {
     public void Cache() {
     }
 
-    public void addPlayertoCache(Player player) {
-        String languageCode = "";
+    public void addPlayertoCache(Player player, String languageCode, boolean enabled) {
         String playerName = player.getName();
-        boolean enabled = true;
         PlayerCache playerCache = new PlayerCache(player, languageCode, enabled);
         this.playerCacheMap.put(playerName, playerCache);
     }
